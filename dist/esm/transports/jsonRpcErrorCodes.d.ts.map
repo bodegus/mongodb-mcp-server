@@ -1,0 +1,1 @@
+{"version":3,"file":"jsonRpcErrorCodes.d.ts","sourceRoot":"","sources":["../../../src/transports/jsonRpcErrorCodes.ts"],"names":[],"mappings":"AAAA;;;;GAIG;AAEH,eAAO,MAAM,6CAA6C,SAAS,CAAC;AACpE,eAAO,MAAM,uCAAuC,SAAS,CAAC;AAC9D,eAAO,MAAM,sCAAsC,SAAS,CAAC;AAC7D,eAAO,MAAM,qCAAqC,SAAS,CAAC;AAC5D,eAAO,MAAM,mCAAmC,SAAS,CAAC;AAC1D,eAAO,MAAM,+CAA+C,SAAS,CAAC"}
