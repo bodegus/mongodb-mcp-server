@@ -10,9 +10,9 @@ const PROFILES = {
     NONPROD: {
         instanceSize: "M10",
         diskSizeGB: 10,
-        autoscaling: false,
-        minInstanceSize: null as string | null,
-        maxInstanceSize: null as string | null,
+        autoscaling: true,
+        minInstanceSize: "M10" as string | null,
+        maxInstanceSize: "M30" as string | null,
         backupEnabled: false,
         pitEnabled: false,
         terminationProtectionEnabled: false,
@@ -49,7 +49,7 @@ export class CreateSimpleClusterTool extends AtlasToolBase {
 
     public description =
         "Create a simple MongoDB Atlas replica set cluster using a NONPROD or PROD profile. " +
-        "NONPROD: M10, no backup, no autoscaling. PROD: M30, backup + PIT enabled, compute and disk autoscaling.";
+        "NONPROD: M10, autoscaling M10→M30, no backup. PROD: M30, autoscaling M30→M60, backup + PIT enabled, termination protection.";
 
     public argsShape = {
         projectId: AtlasArgs.projectId().describe("Atlas project ID to create the cluster in"),
@@ -57,7 +57,7 @@ export class CreateSimpleClusterTool extends AtlasToolBase {
         clusterProfile: z
             .enum(["NONPROD", "PROD"])
             .describe(
-                "NONPROD: M10, no backup, no autoscaling. PROD: M30, backup, PIT recovery, autoscaling M30→M60, termination protection."
+                "NONPROD: M10, no backup, autoscaling M10→M30. PROD: M30, backup, PIT recovery, autoscaling M30→M60, termination protection."
             ),
         provider: z.enum(["AWS", "AZURE", "GCP"]).describe("Cloud provider"),
         regions: z
